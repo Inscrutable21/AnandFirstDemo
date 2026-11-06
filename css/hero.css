@@ -21,8 +21,9 @@
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1s ease-in-out, transform 8s ease-out;
-  transform: scale(1.05);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 7s ease-out;
+  transform: scale(1.06);
+  will-change: opacity, transform;
 }
 
 .hero-slide.active {
@@ -203,53 +204,4 @@
   color: var(--color-dark);
   border-color: var(--color-white);
   transform: translateY(-2px);
-}
-
-/* Hero Carousel Controls */
-.hero-carousel-controls {
-  position: absolute;
-  bottom: 2.5rem;
-  right: 3rem;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.carousel-arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
-  color: var(--color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s var(--ease-bounce);
-}
-
-.carousel-arrow:hover {
-  background: var(--color-yellow);
-  color: var(--color-punch-red);
-  transform: scale(1.1);
-}
-
-.carousel-dots {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.carousel-dots .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.4);
-  transition: all 0.3s ease;
-}
-
-.carousel-dots .dot.active {
-  width: 28px;
-  background: var(--color-yellow);
 }

@@ -1,62 +1,74 @@
 /* ==========================================================================
-   2. HERO CAROUSEL
+   2. HERO CAROUSEL - AUTOMATIC CONTINUOUS SLIDE
    ========================================================================== */
 function initHeroCarousel() {
   const slides = document.querySelectorAll(".hero-slide");
-  const dots = document.querySelectorAll(".carousel-dots .dot");
-  const prevBtn = document.getElementById("heroPrevBtn");
-  const nextBtn = document.getElementById("heroNextBtn");
   const heroSection = document.getElementById("heroSection");
 
   if (!slides.length) return;
 
   let currentIndex = 0;
-  let autoplayTimer;
+  let autoplayTimer = null;
   const slideCount = slides.length;
+  const AUTOPLAY_INTERVAL = 4500; // 4.5 seconds per slide
 
   const goToSlide = (index) => {
     slides[currentIndex].classList.remove("active");
-    dots[currentIndex].classList.remove("active");
     currentIndex = (index + slideCount) % slideCount;
     slides[currentIndex].classList.add("active");
-    dots[currentIndex].classList.add("active");
   };
 
-  const nextSlide = () => goToSlide(currentIndex + 1);
-  const prevSlide = () => goToSlide(currentIndex - 1);
+  const nextSlide = () => {
+    goToSlide(currentIndex + 1);
+  };
 
-  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+  const prevSlide = () => {
+    goToSlide(currentIndex - 1);
+  };
 
-  dots.forEach((dot, idx) => {
-    dot.addEventListener("click", () => goToSlide(idx));
+  // Continuous Automatic Slide
+  const startAutoplay = () => {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+  };
+
+  const stopAutoplay = () => {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  };
+
+  // Start automatic slide immediately
+  startAutoplay();
+
+  // Pause when browser tab is hidden to save resources and resume when focused
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
   });
 
-  // Autoplay
-  const startAutoplay = () => {
-    clearInterval(autoplayTimer);
-    autoplayTimer = setInterval(nextSlide, 5500);
-  };
-  const stopAutoplay = () => clearInterval(autoplayTimer);
-
-  startAutoplay();
+  // Touch swipe support on mobile devices
   if (heroSection) {
-    heroSection.addEventListener("mouseenter", stopAutoplay);
-    heroSection.addEventListener("mouseleave", startAutoplay);
+    let startX = 0;
+    heroSection.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    heroSection.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        startAutoplay(); // Reset timer after manual swipe
+      }
+    }, { passive: true });
   }
-
-  // Touch Swipe for mobile
-  let startX = 0;
-  heroSection.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
-  heroSection.addEventListener("touchend", (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) nextSlide();
-      else prevSlide();
-    }
-  }, { passive: true });
 }
