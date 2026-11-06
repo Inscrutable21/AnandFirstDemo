@@ -1,0 +1,168 @@
+/* ==========================================================================
+   SECTION 3: SCROLLING MARQUEE BAR ("A RING FOR EVERY THING.")
+   Authentic 3-Ribbon Continuous Tape Ticker (Manufactur Awwwards Replica)
+   ========================================================================== */
+
+.marquee-section {
+  background-color: #fff7e9;
+  padding: 4.5rem 0 6.5rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.marquee-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 900;
+  color: #38292b;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Ribbons Container */
+.marquee-ribbons-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5rem 0;
+}
+
+/* Individual Scrolling Ribbon Strip */
+.scrolling-ribbon {
+  width: 112vw;
+  margin-left: -6vw;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Ribbon 1: Pink Ribbon */
+.ribbon-pink {
+  background-color: #f9367a;
+  color: #ffb9e6;
+  transform: rotate(2.5deg);
+  z-index: 1;
+  padding: 1.25rem 0 1.5rem;
+}
+
+/* Ribbon 2: Green Ribbon (Overlaps Ribbon 1) */
+.ribbon-green {
+  background-color: #64f525;
+  color: #086500;
+  transform: rotate(0deg);
+  margin-top: -18px;
+  z-index: 2;
+  padding: 1.25rem 0 1.5rem;
+}
+
+/* Ribbon 3: Yellow Ribbon (Overlaps Ribbon 2) */
+.ribbon-yellow {
+  background-color: #fff200;
+  color: #e0521e;
+  transform: rotate(2.2deg);
+  margin-top: -16px;
+  z-index: 3;
+  padding: 1.25rem 0 1.5rem;
+}
+
+/* Ribbon Tracks & Animation */
+.ribbon-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.track-left {
+  animation: ribbonScrollLeft 32s linear infinite;
+}
+
+.track-right {
+  animation: ribbonScrollRight 36s linear infinite;
+}
+
+.track-left-fast {
+  animation: ribbonScrollLeft 28s linear infinite;
+}
+
+.marquee-section:hover .ribbon-track {
+  animation-play-state: paused;
+}
+
+.ribbon-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ribbon-item {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  padding: 0 1.75rem;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Keyframes for Continuous Smooth Loop */
+@keyframes ribbonScrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ribbonScrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile & Tablet Adjustments */
+@media (max-width: 1023px) {
+  .marquee-section {
+    padding: 3rem 0 4.5rem;
+  }
+  .marquee-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 2rem;
+  }
+  .ribbon-pink {
+    padding: 0.75rem 0 1rem;
+    transform: rotate(2.5deg);
+  }
+  .ribbon-green {
+    padding: 0.75rem 0 1rem;
+    margin-top: -10px;
+  }
+  .ribbon-yellow {
+    padding: 0.75rem 0 1rem;
+    margin-top: -10px;
+    transform: rotate(2.2deg);
+  }
+  .ribbon-item {
+    font-size: clamp(1.8rem, 5.5vw, 2.6rem);
+    padding: 0 1.1rem;
+    letter-spacing: -0.015em;
+  }
+}

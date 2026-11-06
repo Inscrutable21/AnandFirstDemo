@@ -1,0 +1,129 @@
+<!-- Header & Sticky Navigation -->
+<header class="site-header" id="siteHeader">
+  <div class="header-container">
+    
+    <!-- Left: Mobile Menu Trigger & Desktop Nav -->
+    <div class="header-left">
+      <button class="hamburger-btn" id="mobileMenuTrigger" aria-label="Open navigation menu">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <div class="nav-item has-dropdown" id="productsNavItem">
+          <button class="nav-link dropdown-toggle" id="productsMenuBtn" aria-expanded="false">
+            PRODUCTS
+          </button>
+        </div>
+        <a href="#aboutSection" class="nav-link" id="exploreNavBtn">EXPLORE</a>
+        <a href="#aboutSection" class="nav-link">ABOUT</a>
+      </nav>
+    </div>
+
+    <!-- Center: Ring Pop Brand Logo -->
+    <div class="header-center">
+      <a href="#" class="brand-logo-link" aria-label="Ring Pop Home">
+        <img src="assets/RP-SecondaryLogo_1.svg" alt="Ring Pop" class="brand-logo-img">
+      </a>
+    </div>
+
+    <!-- Right: Action Buttons -->
+    <div class="header-right">
+      <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Search flavors and collections">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <a href="#stackingCards" class="btn-buy-blue">
+        Buy Now
+      </a>
+
+      <button class="cart-trigger-btn" id="cartTriggerBtn" aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge-count" id="cartCountBadge">2</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mega Menu Dropdown with Drop Animation -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-inner">
+      <div class="mega-menu-content">
+        
+        <!-- Column 1: PRODUCTS -->
+        <div class="mega-col">
+          <h3 class="mega-col-title">PRODUCTS</h3>
+          <ul class="mega-nav-list">
+            <li><a href="#partyPackCard">Party Pack</a></li>
+            <li><a href="#originalsCard">Ring Pop Originals</a></li>
+            <li><a href="#colorfestCard">Colorfest&reg;</a></li>
+            <li><a href="#seasonalCard">Seasonal</a></li>
+            <li><a href="#weddingSection">Weddings &amp; Bridal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: EXPLORE -->
+        <div class="mega-col">
+          <h3 class="mega-col-title">EXPLORE</h3>
+          <ul class="mega-nav-list">
+            <li><a href="#aboutSection">About</a></li>
+            <li><a href="#newsletterSection">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: SUPPORT -->
+        <div class="mega-col">
+          <h3 class="mega-col-title">SUPPORT</h3>
+          <ul class="mega-nav-list">
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">DO NOT SELL MY PERSONAL INFO</a></li>
+            <li><a href="#">Marketing Policy</a></li>
+            <li><a href="#">Privacy Preference Center</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Brand Logo & Copyright -->
+        <div class="mega-col mega-col-brand">
+          <img src="assets/RP-SecondaryLogo_1.svg" alt="Ring Pop" class="mega-brand-logo">
+          <p class="mega-brand-copyright">&copy; THE BAZOOKA COMPANIES, LLC&nbsp;&nbsp;SITE BY MANUFACTUR</p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Interactive Candies Drop Zone -->
+      <div class="mega-candies-zone" id="megaCandiesZone">
+        <div class="mega-candy-item" data-id="1">
+          <img src="assets/Ring_Pop_Image_-_1_1.webp" alt="Yellow Ring Pop" draggable="false">
+        </div>
+        <div class="mega-candy-item" data-id="2">
+          <img src="assets/Ring_Pop_Image_-_2_1.webp" alt="Pink Ring Pop" draggable="false">
+        </div>
+        <div class="mega-candy-item" data-id="3">
+          <img src="assets/Ring_Pop_Image_-_3_1.webp" alt="Orange Ring Pop" draggable="false">
+        </div>
+        <div class="mega-candy-item" data-id="4">
+          <img src="assets/Ring_Pop_Image_-_4_1.webp" alt="Green Ring Pop" draggable="false">
+        </div>
+        <div class="mega-candy-item" data-id="5">
+          <img src="assets/Ring_Pop_Image_-_5_1.webp" alt="Blue Ring Pop" draggable="false">
+        </div>
+        <div class="mega-candy-item" data-id="6">
+          <img src="assets/Ring_Pop_Image_-_6.webp" alt="Lime Ring Pop" draggable="false">
+        </div>
+        <div class="mega-candy-item" data-id="7">
+          <img src="assets/Ring_Pop_Image_-_7.webp" alt="Berry Ring Pop" draggable="false">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+{
+  "name": "ring-pop-website-replica",
+  "version": "1.0.0",
+  "description": "High-fidelity modular replica of the official Ring Pop® website",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build.js",
+    "watch": "node watch.js"
+  },
+  "keywords": [
+    "ring-pop",
+    "manufactur",
+    "awwwards",
+    "modular",
+    "physics-engine",
+    "gsap",
+    "animation"
+  ],
+  "author": "Antigravity Pair Programmer",
+  "license": "MIT"
+}
+

@@ -1,0 +1,124 @@
+/* ==========================================================================
+   RING POP® — Candy for Every Celebration
+   Official Website Replica Stylesheet
+   Design Inspiration: Manufactur (Awwwards Honorable Mention)
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  /* Brand Core Colors */
+  --color-yellow: #FFF200;
+  --color-electric-blue: #2364E7;
+  --color-candy-pink: #FF91B7;
+  --color-hot-pink: #F9367A;
+  --color-fuchsia: #E8588A;
+  --color-punch-red: #E1251B;
+  --color-neon-lime: #64F525;
+  --color-bright-lime: #E0FF18;
+  --color-forest-green: #086500;
+  --color-tangerine: #E0521E;
+  --color-pastel-lemon: #F0FFB5;
+  --color-cream: #FFF7E9;
+  --color-blush-ivory: #F9EEE1;
+  --color-dark: #141723;
+  --color-dark-surface: #1E1B22;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F4F3F0;
+  
+  /* Typography */
+  --font-display: 'Ringold', 'polka-mn', 'hwt-artz', 'Syne', 'Outfit', 'Arial Black', Impact, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Shadows & Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-pill: 9999px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.14);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.22);
+  --shadow-pop: 0 6px 0 rgba(0, 0, 0, 0.9);
+  
+  /* Transitions */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: 0.2s var(--ease-smooth);
+  --transition-normal: 0.35s var(--ease-smooth);
+  --transition-bounce: 0.4s var(--ease-bounce);
+}
+
+/* --- Global Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* --- Reusable Utility Components --- */
+.section-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chip-pink {
+  background: rgba(232, 88, 138, 0.15);
+  color: var(--color-fuchsia);
+}
+
+.chip-yellow {
+  background: var(--color-yellow);
+  color: var(--color-punch-red);
+}
+
+.chip-green {
+  background: var(--color-neon-lime);
+  color: var(--color-forest-green);
+}
+
+.chip-white {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  backdrop-filter: blur(4px);
+}

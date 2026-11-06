@@ -1,0 +1,288 @@
+/* ==========================================================================
+   SECTIONS 4 - 8: SIGNATURE 100% FULL-WIDTH STACKING COLLECTION SECTIONS
+   Authentic Ring Pop / Manufactur Architecture
+   ========================================================================== */
+
+/* Main Full-Width Outer Container */
+.stacking-cards-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  background-color: transparent;
+}
+
+/* Individual Full-Screen Stacking Section */
+.as-stacking-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  will-change: transform;
+  /* Natural layer shadow for clean depth */
+  box-shadow: 0 -25px 45px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Dynamic ScrollTrigger Active Stacking Shadow */
+.as-stacking-section--shadow {
+  box-shadow: 0 -30px 45px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* --- Theme 1: Party Pack (Pure Bold Punch Red / Yellow) --- */
+.stack-party-pack {
+  background-color: #E1251B;
+  color: #FFF200;
+}
+.stack-party-pack .stack-huge-title {
+  color: #FFF200;
+}
+
+/* --- Theme 2: Wedding (Soft Blush Ivory / Fuchsia Pink) --- */
+.stack-wedding {
+  background-color: #F9EEE1;
+  color: #E8588A;
+}
+.stack-wedding .stack-small-title {
+  color: #E8588A;
+}
+.stack-wedding .stack-huge-title {
+  color: #E8588A;
+}
+.stack-wedding .stack-subtitle {
+  color: #38292B;
+}
+
+/* --- Theme 3: Originals (Electric Royal Blue / Neon Lime Yellow) --- */
+.stack-originals {
+  background-color: #2364E7;
+  color: #E0FF18;
+}
+.stack-originals .stack-huge-title {
+  color: #E0FF18;
+}
+
+/* --- Theme 4: Colorfest (Deep Forest Green / Neon Lime) --- */
+.stack-colorfest {
+  background-color: #086500;
+  color: #64F525;
+}
+.stack-colorfest .stack-huge-title {
+  color: #64F525;
+}
+
+/* --- Theme 5: Seasonal (Tangerine Orange / Pastel Lemon) --- */
+.stack-seasonal {
+  background-color: #E0521E;
+  color: #F0FFB5;
+}
+.stack-seasonal .stack-huge-title {
+  color: #F0FFB5;
+}
+
+/* --- Section Inner Layout --- */
+.stack-section-inner {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4.5rem 1.5rem 3.5rem;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* "Collection" Small Eyebrow */
+.stack-small-title {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.85rem;
+  color: #FCFCFC;
+  opacity: 0.95;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Giant Statement Title across full width */
+.stack-huge-title {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 15vw, 15.5rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto -55px;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 1024px) {
+  .stack-huge-title {
+    margin-bottom: -85px;
+  }
+}
+
+/* Centered Icon Canvas & Parallax Wrapper */
+.stack-center-icon-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: min(85vw, 740px);
+  margin: 0 auto 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.42));
+  transition: transform 0.25s ease-out;
+}
+
+.stack-center-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 480px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+.stack-center-icon-wrap:hover .stack-center-img {
+  transform: scale(1.03);
+}
+
+/* Subtitle */
+.stack-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 auto 2.25rem;
+  color: #FFFFFF;
+  text-align: center;
+  max-width: 700px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Explore Button Pill */
+.stack-btn-wrap {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-stack-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  padding: 1.05rem 2.8rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+
+/* Explore Button Theme Variations */
+.btn-yellow-explore {
+  background-color: #FFF200;
+  color: #E1251B;
+}
+.btn-yellow-explore:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+}
+
+.btn-pink-explore {
+  background-color: #E8588A;
+  color: #FFFFFF;
+}
+.btn-pink-explore:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(232, 88, 138, 0.45);
+}
+
+.btn-lime-explore {
+  background-color: #E0FF18;
+  color: #2364E7;
+}
+.btn-lime-explore:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+}
+
+.btn-green-explore {
+  background-color: #64F525;
+  color: #086500;
+}
+.btn-green-explore:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+}
+
+.btn-lemon-explore {
+  background-color: #F0FFB5;
+  color: #E0521E;
+}
+.btn-lemon-explore:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .stack-section-inner {
+    padding: 3.5rem 1.25rem 2.5rem;
+  }
+  .stack-huge-title {
+    font-size: clamp(3.2rem, 14vw, 5.5rem);
+    margin-bottom: -35px;
+  }
+  .stack-center-icon-wrap {
+    max-width: 92vw;
+    margin-bottom: 1rem;
+  }
+  .stack-center-img {
+    max-height: 320px;
+  }
+  .stack-subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 1.75rem;
+  }
+  .btn-stack-explore {
+    min-width: 200px;
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
+}

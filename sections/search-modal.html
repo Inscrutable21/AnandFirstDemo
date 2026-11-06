@@ -1,0 +1,26 @@
+<!-- Search Modal -->
+  <div class="search-modal-overlay" id="searchModalOverlay">
+    <div class="search-modal-container">
+      <div class="search-input-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="siteSearchInput" placeholder="Search flavors, packs, wedding bling..." autocomplete="off">
+        <button class="search-close-btn" id="closeSearchModal">&times;</button>
+      </div>
+
+      <div class="search-suggest-tags">
+        <span>Trending:</span>
+        <button class="suggest-tag" onclick="searchFor('Party Pack')">Party Pack</button>
+        <button class="suggest-tag" onclick="searchFor('Wedding')">Wedding Bling</button>
+        <button class="suggest-tag" onclick="searchFor('Blue Raspberry')">Blue Raspberry</button>
+        <button class="suggest-tag" onclick="searchFor('Colorfest')">Colorfest</button>
+        <button class="suggest-tag" onclick="searchFor('Halloween')">Halloween</button>
+      </div>
+
+      <div class="search-results-list" id="searchResultsList">
+        <!-- Live search results populate here -->
+      </div>
+    </div>
+  </div>

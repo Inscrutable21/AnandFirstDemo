@@ -1,0 +1,161 @@
+/* ==========================================================================
+   SECTION 12: EXPLORE THE WORLD OF RING POP®
+   Authentic Ring Pop Neon Green & Chunky Gem Hands Feature
+   Design: Manufactur / ringpopcandy.com
+   ========================================================================== */
+
+.explore-world-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 600px;
+  background-color: #64F525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 117px 24px 105px;
+}
+
+/* Center Content */
+.explore-world-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 932px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Giant Display Title: 160px / line-height 115px authentic to original */
+.explore-world-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 10.5vw, 160px);
+  font-weight: 900;
+  line-height: 0.74;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #086500;
+  margin: 0 auto 30px;
+  text-align: center;
+  user-select: none;
+}
+
+/* Explore Pill Button */
+.btn-explore-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #086500;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  width: 212px;
+  height: 56px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(8, 101, 0, 0.28);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-explore-green:hover {
+  background-color: #065400;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(8, 101, 0, 0.38);
+}
+
+/* Chunky Gem Hand Graphics */
+.explore-hand-wrap {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* Desktop Left Hand: Pink Gem pointing up/inwards */
+.hand-left {
+  left: 0;
+  bottom: 0;
+  width: clamp(280px, 34vw, 530px);
+  max-height: 100%;
+}
+
+/* Desktop Right Hand: Green Gem pointing up-left towards POP® */
+.hand-right {
+  right: 0;
+  bottom: 0;
+  width: clamp(260px, 31vw, 480px);
+  max-height: 100%;
+}
+
+.explore-hand-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Responsive Tablet and Mobile Adjustments */
+@media (max-width: 1023px) {
+  .explore-world-section {
+    min-height: 480px;
+    padding: 90px 16px 90px;
+  }
+
+  .explore-world-title {
+    font-size: clamp(3rem, 9.5vw, 94px);
+    line-height: 0.8;
+    margin-bottom: 24px;
+  }
+
+  .hand-left {
+    left: 0;
+    bottom: 0;
+    width: clamp(160px, 28vw, 225px);
+  }
+
+  .hand-right {
+    right: 0;
+    top: -2%;
+    bottom: auto;
+    width: clamp(160px, 28vw, 225px);
+  }
+}
+
+@media (max-width: 640px) {
+  .explore-world-section {
+    min-height: 420px;
+    padding: 70px 16px 70px;
+  }
+
+  .explore-world-title {
+    font-size: clamp(2.4rem, 11vw, 4.4rem);
+    line-height: 0.85;
+    margin-bottom: 20px;
+  }
+
+  .btn-explore-green {
+    width: 180px;
+    height: 50px;
+    font-size: 0.95rem;
+  }
+
+  .hand-left {
+    width: 150px;
+    bottom: 0;
+  }
+
+  .hand-right {
+    width: 140px;
+    top: -3%;
+  }
+}

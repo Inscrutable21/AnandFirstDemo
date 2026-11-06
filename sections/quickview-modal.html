@@ -1,0 +1,43 @@
+<!-- Quick View / Flavor Selector Modal -->
+  <div class="modal-overlay" id="quickViewOverlay">
+    <div class="quickview-modal">
+      <button class="modal-close-btn" id="closeQuickView" aria-label="Close modal">&times;</button>
+      
+      <div class="quickview-grid">
+        <div class="quickview-img-col">
+          <img src="assets/RingPop_PartyPack.png" alt="Product preview" id="qvImage">
+        </div>
+        <div class="quickview-details-col">
+          <span class="qv-badge" id="qvBadge">BESTSELLER</span>
+          <h3 class="qv-title" id="qvTitle">Ring Pop Party Pack</h3>
+          <p class="qv-price" id="qvPrice">$14.99</p>
+          <p class="qv-desc" id="qvDesc">Assorted bulk variety pack with classic fruit-flavored gem lollipops.</p>
+
+          <div class="qv-flavor-selector">
+            <label>Pick Primary Flavor Accent:</label>
+            <div class="flavor-pills">
+              <button class="flavor-pill active" data-flavor="Strawberry" style="--flavor-color: #E1251B;">Strawberry</button>
+              <button class="flavor-pill" data-flavor="Blue Razz" style="--flavor-color: #2364E7;">Blue Razz</button>
+              <button class="flavor-pill" data-flavor="Watermelon" style="--flavor-color: #64F525;">Watermelon</button>
+              <button class="flavor-pill" data-flavor="Cherry" style="--flavor-color: #9C110A;">Cherry</button>
+            </div>
+          </div>
+
+          <div class="qv-pack-size">
+            <label>Pack Size:</label>
+            <div class="size-radios">
+              <label class="size-pill active"><input type="radio" name="packSize" checked> 20-Count</label>
+              <label class="size-pill"><input type="radio" name="packSize"> 30-Count (+$5.00)</label>
+            </div>
+          </div>
+
+          <div class="qv-actions">
+            <button class="btn-qv-add" id="qvAddBtn">
+              <span>Add to Sweet Bag</span>
+              
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

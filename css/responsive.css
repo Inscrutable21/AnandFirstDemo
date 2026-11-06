@@ -1,0 +1,86 @@
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .hamburger-btn {
+    display: flex;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  .wedding-card {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+  }
+  .party-banner-card {
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+  }
+  .newsletter-card {
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-columns-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .stack-card-inner {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  .stack-main-img {
+    max-height: 320px;
+  }
+  .lookbook-grid {
+    grid-template-columns: 1fr;
+  }
+  .quickview-grid {
+    grid-template-columns: 1fr;
+  }
+  .quickview-modal {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .announcement-bar {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+  .header-container {
+    padding: 0.35rem 0.75rem;
+  }
+  .brand-logo-img {
+    height: 36px;
+  }
+  .btn-buy-pill {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .footer-columns-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-input-group {
+    flex-direction: column;
+  }
+  .footer-bottom-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .physics-sandbox {
+    height: 280px;
+  }
+  .physics-candy-item {
+    width: 100px;
+  }
+}

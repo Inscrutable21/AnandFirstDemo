@@ -1,0 +1,244 @@
+/* ==========================================================================
+   SECTION 9: GET INSPIRED ("Find Your Moment")
+   Authentic Ring Pop Gallery & Carousel Architecture
+   ========================================================================== */
+
+.get-inspired-section {
+  width: 100%;
+  max-width: 100%;
+  padding: 5.5rem 0 6.5rem;
+  background-color: #FFF7E9;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Header Row: Title Left, Blue Pill Button Right */
+.inspired-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem 2.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.inspired-huge-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #38292B;
+  margin: 0;
+}
+
+.btn-find-moment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2364E7;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.95rem 2.4rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 24px rgba(35, 100, 231, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-find-moment:hover {
+  background-color: #1854cc;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(35, 100, 231, 0.45);
+}
+
+/* Horizontal Cards Carousel (100% Full Width) */
+.inspired-carousel-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.inspired-track {
+  display: flex;
+  gap: 24px;
+  padding: 1.5rem 4rem 3rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.inspired-track:active {
+  cursor: grabbing;
+}
+
+.inspired-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Card (Authentic 246px x 470px with Subtle Alternating Tilts) */
+.inspired-card {
+  flex: 0 0 246px;
+  width: 246px;
+  height: 470px;
+  aspect-ratio: 246 / 470;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background-color: #2b6ffc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+  transform-origin: center center;
+}
+
+/* Alternating Rotation Tilts */
+.card-tilt-1 { transform: rotate(-1.8deg) translateY(-4px); }
+.card-tilt-2 { transform: rotate(1.4deg) translateY(6px); }
+.card-tilt-3 { transform: rotate(-1.2deg) translateY(-2px); }
+.card-tilt-4 { transform: rotate(1.8deg) translateY(5px); }
+.card-tilt-5 { transform: rotate(-1.5deg) translateY(-3px); }
+.card-tilt-6 { transform: rotate(1.2deg) translateY(3px); }
+.card-tilt-7 { transform: rotate(-1.4deg) translateY(-2px); }
+
+/* Card Hover Elevation */
+.inspired-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+.inspired-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.inspired-card-gradient {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.inspired-card-caption {
+  position: absolute;
+  bottom: 22px;
+  left: 16px;
+  right: 16px;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  margin: 0;
+}
+
+/* Circular Dark Navigation Arrow Buttons */
+.carousel-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #222222;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.25s ease;
+}
+
+.prev-arrow-btn {
+  left: 2rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.next-arrow-btn {
+  right: 2rem;
+  opacity: 1;
+}
+
+.prev-arrow-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.next-arrow-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-arrow-btn:hover {
+  background-color: #000000;
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .inspired-header-row {
+    padding: 0 2rem 2rem;
+  }
+  .inspired-track {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+  .carousel-arrow-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .prev-arrow-btn { left: 1rem; }
+  .next-arrow-btn { right: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .get-inspired-section {
+    padding: 4rem 0 4.5rem;
+  }
+  .inspired-header-row {
+    padding: 0 1.5rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .inspired-huge-title {
+    font-size: clamp(2.5rem, 10vw, 3.8rem);
+  }
+  .btn-find-moment {
+    padding: 0.85rem 1.8rem;
+    font-size: 0.95rem;
+  }
+  .inspired-track {
+    padding: 1rem 1.5rem 2rem;
+    gap: 16px;
+  }
+  .inspired-card {
+    flex: 0 0 210px;
+    width: 210px;
+    height: 400px;
+  }
+}

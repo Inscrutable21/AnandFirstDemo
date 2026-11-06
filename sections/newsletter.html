@@ -1,0 +1,63 @@
+<!-- Section 11: STAY IN THE LOOP Newsletter & Gem Hexagon Links -->
+<section class="newsletter-section" id="newsletterSection">
+  <div class="newsletter-container">
+    
+    <!-- Big Centered Headline -->
+    <h2 class="newsletter-heading">STAY IN THE LOOP</h2>
+
+    <!-- Newsletter Form -->
+    <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+      <div class="newsletter-input-wrap">
+        <input 
+          type="email" 
+          id="newsletterEmail" 
+          name="email"
+          class="newsletter-input" 
+          placeholder="EMAIL ADDRESS" 
+          autocomplete="email" 
+          required 
+          aria-label="Email Address"
+        >
+      </div>
+
+      <button type="submit" class="btn-signup-pill" id="newsletterSubmitBtn">
+        Sign me up
+      </button>
+    </form>
+
+    <!-- Success Message Container (Initially Hidden) -->
+    <div class="newsletter-success-toast" id="newsletterSuccess" style="display: none;">
+      <span>Thanks for subscribing! Check your inbox for sweet updates.</span>
+    </div>
+
+    <!-- 4 Faceted Gem Hexagon Social Links -->
+    <div class="newsletter-social-row">
+      
+      <!-- Facebook Hexagon (Royal Blue) -->
+      <a href="https://www.facebook.com/ringpop/" target="_blank" rel="noopener noreferrer" class="social-gem-link gem-facebook" aria-label="Ring Pop on Facebook">
+        <div class="social-hexagon-shape"></div>
+        <img src="assets/facebook-icon-new.svg" alt="" class="social-gem-svg">
+      </a>
+
+      <!-- TikTok Hexagon (Pink) -->
+      <a href="https://www.tiktok.com/@ringpopcandy" target="_blank" rel="noopener noreferrer" class="social-gem-link gem-tiktok" aria-label="Ring Pop on TikTok">
+        <div class="social-hexagon-shape"></div>
+        <img src="assets/tiktok-icon-new.svg" alt="" class="social-gem-svg">
+      </a>
+
+      <!-- Instagram Hexagon (Orange) -->
+      <a href="https://www.instagram.com/ringpopofficial/" target="_blank" rel="noopener noreferrer" class="social-gem-link gem-instagram" aria-label="Ring Pop on Instagram">
+        <div class="social-hexagon-shape"></div>
+        <img src="assets/instagram-icon-new.svg" alt="" class="social-gem-svg">
+      </a>
+
+      <!-- LinkedIn Hexagon (Green) -->
+      <a href="https://www.linkedin.com/company/the-bazooka-companies-llc" target="_blank" rel="noopener noreferrer" class="social-gem-link gem-linkedin" aria-label="Ring Pop on LinkedIn">
+        <div class="social-hexagon-shape"></div>
+        <img src="assets/linked-in-icon-new.svg" alt="" class="social-gem-svg">
+      </a>
+
+    </div>
+
+  </div>
+</section>
