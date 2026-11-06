@@ -49,6 +49,9 @@
         <div class="nav-item has-dropdown" id="productsNavItem">
           <button class="nav-link dropdown-toggle" id="productsMenuBtn" aria-expanded="false">
             PRODUCTS
+            <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
           </button>
         </div>
         <a href="#aboutSection" class="nav-link" id="exploreNavBtn">EXPLORE</a>
@@ -88,74 +91,118 @@
 
   </div>
 
-  <!-- Mega Menu Dropdown with Drop Animation -->
+  <!-- Mega Menu Dropdown: Showcases the 5 Core Ring Pop Product Drops -->
   <div class="mega-menu" id="megaMenu">
     <div class="mega-menu-inner">
-      <div class="mega-menu-content">
+      
+      <!-- Top Header Row -->
+      <div class="mega-menu-header">
+        <div class="mega-header-left">
+          <span class="mega-eyebrow">RING POP® COLLECTIONS</span>
+          <h2 class="mega-headline">Explore All Product Drops</h2>
+        </div>
+        <a href="#stackingCards" class="mega-view-all-link">
+          <span>Shop All Collections</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- 5-Product Cards Grid with Drop Animation -->
+      <div class="mega-products-grid">
         
-        <!-- Column 1: PRODUCTS -->
-        <div class="mega-col">
-          <h3 class="mega-col-title">PRODUCTS</h3>
-          <ul class="mega-nav-list">
-            <li><a href="#partyPackCard">Party Pack</a></li>
-            <li><a href="#originalsCard">Ring Pop Originals</a></li>
-            <li><a href="#colorfestCard">Colorfest&reg;</a></li>
-            <li><a href="#seasonalCard">Seasonal</a></li>
-            <li><a href="#weddingSection">Weddings &amp; Bridal</a></li>
-          </ul>
-        </div>
+        <!-- Product 1: Party Pack -->
+        <a href="#partyPackCard" class="mega-product-card card-party-pack" onclick="openQuickView('Ring Pop Party Pack (20ct Bag)', '$14.99', 'assets/RingPop_PartyPack.png', 'The one that started it all. Individually wrapped candy gems.')">
+          <div class="mega-badge badge-yellow">Best Seller</div>
+          <div class="mega-img-wrap">
+            <img src="assets/RingPop_PartyPack.png" alt="Party Pack" class="mega-product-img">
+          </div>
+          <div class="mega-product-info">
+            <h3 class="mega-product-title">Party Pack</h3>
+            <p class="mega-product-desc">The one that started it all</p>
+            <div class="mega-product-footer">
+              <span class="mega-product-price">$14.99</span>
+              <span class="mega-explore-pill">Shop Now</span>
+            </div>
+          </div>
+        </a>
 
-        <!-- Column 2: EXPLORE -->
-        <div class="mega-col">
-          <h3 class="mega-col-title">EXPLORE</h3>
-          <ul class="mega-nav-list">
-            <li><a href="#aboutSection">About</a></li>
-            <li><a href="#newsletterSection">Contact</a></li>
-          </ul>
-        </div>
+        <!-- Product 2: Wedding Collection -->
+        <a href="#weddingCard" class="mega-product-card card-wedding" onclick="openQuickView('Wedding Collection 15-Pack', '$18.99', 'assets/Frame_659.webp', 'Curated diamond clear and strawberry flavors made for bridal celebrations.')">
+          <div class="mega-badge badge-pink">Collaboration</div>
+          <div class="mega-img-wrap">
+            <img src="assets/Frame_659.webp" alt="Wedding Collection" class="mega-product-img">
+          </div>
+          <div class="mega-product-info">
+            <h3 class="mega-product-title">Wedding</h3>
+            <p class="mega-product-desc">Put a Ring Pop on it</p>
+            <div class="mega-product-footer">
+              <span class="mega-product-price">$18.99</span>
+              <span class="mega-explore-pill">Shop Now</span>
+            </div>
+          </div>
+        </a>
 
-        <!-- Column 3: SUPPORT -->
-        <div class="mega-col">
-          <h3 class="mega-col-title">SUPPORT</h3>
-          <ul class="mega-nav-list">
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">DO NOT SELL MY PERSONAL INFO</a></li>
-            <li><a href="#">Marketing Policy</a></li>
-            <li><a href="#">Privacy Preference Center</a></li>
-          </ul>
-        </div>
+        <!-- Product 3: Originals -->
+        <a href="#originalsCard" class="mega-product-card card-originals" onclick="openQuickView('Ring Pop Originals (24ct Box)', '$19.99', 'assets/Ring_Pop_-_Image_2.webp', 'The ultimate classic variety box featuring Blue Razz, Cherry, Strawberry, and Watermelon.')">
+          <div class="mega-badge badge-blue">Classics</div>
+          <div class="mega-img-wrap">
+            <img src="assets/Ring_Pop_-_Image_2.webp" alt="Originals" class="mega-product-img">
+          </div>
+          <div class="mega-product-info">
+            <h3 class="mega-product-title">Originals</h3>
+            <p class="mega-product-desc">4 iconic fruity flavors</p>
+            <div class="mega-product-footer">
+              <span class="mega-product-price">$19.99</span>
+              <span class="mega-explore-pill">Shop Now</span>
+            </div>
+          </div>
+        </a>
 
-        <!-- Column 4: Brand Logo & Copyright -->
-        <div class="mega-col mega-col-brand">
-          <img src="assets/RP-SecondaryLogo_1.svg" alt="Ring Pop" class="mega-brand-logo">
-          <p class="mega-brand-copyright">&copy; THE BAZOOKA COMPANIES, LLC&nbsp;&nbsp;SITE BY MANUFACTUR</p>
-        </div>
+        <!-- Product 4: Colorfest -->
+        <a href="#colorfestCard" class="mega-product-card card-colorfest" onclick="openQuickView('Colorfest Green Apple (30ct)', '$21.99', 'assets/RingPop_Colorfest1.png', 'Single-flavor monochrome candy pack for team celebrations and color-themed parties.')">
+          <div class="mega-badge badge-green">Single Color</div>
+          <div class="mega-img-wrap">
+            <img src="assets/RingPop_Colorfest1.png" alt="Colorfest" class="mega-product-img">
+          </div>
+          <div class="mega-product-info">
+            <h3 class="mega-product-title">Colorfest®</h3>
+            <p class="mega-product-desc">Match the moment &amp; vibe</p>
+            <div class="mega-product-footer">
+              <span class="mega-product-price">$21.99</span>
+              <span class="mega-explore-pill">Shop Now</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 5: Seasonal -->
+        <a href="#seasonalCard" class="mega-product-card card-seasonal" onclick="openQuickView('Seasonal Holiday Box (36ct)', '$24.99', 'assets/Halloween36ctBoxfront.png', 'Festive and spooky themed seasonal box of Ring Pop candies.')">
+          <div class="mega-badge badge-orange">Limited Drop</div>
+          <div class="mega-img-wrap">
+            <img src="assets/Halloween36ctBoxfront.png" alt="Seasonal Drops" class="mega-product-img">
+          </div>
+          <div class="mega-product-info">
+            <h3 class="mega-product-title">Seasonal</h3>
+            <p class="mega-product-desc">Dress up and pop off</p>
+            <div class="mega-product-footer">
+              <span class="mega-product-price">$24.99</span>
+              <span class="mega-explore-pill">Shop Now</span>
+            </div>
+          </div>
+        </a>
 
       </div>
 
-      <!-- Bottom Interactive Candies Drop Zone -->
-      <div class="mega-candies-zone" id="megaCandiesZone">
-        <div class="mega-candy-item" data-id="1">
-          <img src="assets/Ring_Pop_Image_-_1_1.webp" alt="Yellow Ring Pop" draggable="false">
-        </div>
-        <div class="mega-candy-item" data-id="2">
-          <img src="assets/Ring_Pop_Image_-_2_1.webp" alt="Pink Ring Pop" draggable="false">
-        </div>
-        <div class="mega-candy-item" data-id="3">
-          <img src="assets/Ring_Pop_Image_-_3_1.webp" alt="Orange Ring Pop" draggable="false">
-        </div>
-        <div class="mega-candy-item" data-id="4">
-          <img src="assets/Ring_Pop_Image_-_4_1.webp" alt="Green Ring Pop" draggable="false">
-        </div>
-        <div class="mega-candy-item" data-id="5">
-          <img src="assets/Ring_Pop_Image_-_5_1.webp" alt="Blue Ring Pop" draggable="false">
-        </div>
-        <div class="mega-candy-item" data-id="6">
-          <img src="assets/Ring_Pop_Image_-_6.webp" alt="Lime Ring Pop" draggable="false">
-        </div>
-        <div class="mega-candy-item" data-id="7">
-          <img src="assets/Ring_Pop_Image_-_7.webp" alt="Berry Ring Pop" draggable="false">
+      <!-- Bottom Quick Flavors Strip -->
+      <div class="mega-menu-bottom-strip">
+        <span class="mega-strip-label">Popular Flavors:</span>
+        <div class="mega-flavor-tags">
+          <span class="flavor-tag tag-blue">Blue Raspberry</span>
+          <span class="flavor-tag tag-red">Strawberry</span>
+          <span class="flavor-tag tag-cherry">Cherry</span>
+          <span class="flavor-tag tag-green">Green Apple</span>
+          <span class="flavor-tag tag-pink">Watermelon</span>
         </div>
       </div>
 

@@ -67,6 +67,13 @@ function initHeaderNavigation() {
     if (megaMenu) {
       megaMenu.addEventListener("mouseenter", openMenu);
       megaMenu.addEventListener("mouseleave", closeMenu);
+
+      megaMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          header.classList.remove("mega-open");
+          productsNavItem.classList.remove("active");
+        });
+      });
     }
 
     document.addEventListener("click", (e) => {
