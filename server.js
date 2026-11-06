@@ -25,7 +25,7 @@ const MIME_TYPES = {
   '.woff2': 'font/woff2'
 };
 
-const server = http.createServer((req, res) => {
+const handleRequest = (req, res) => {
   let reqUrl = req.url.split('?')[0];
   if (reqUrl === '/') reqUrl = '/index.html';
 
@@ -60,14 +60,21 @@ const server = http.createServer((req, res) => {
     const stream = fs.createReadStream(filePath);
     stream.pipe(res);
   });
-});
+};
 
-server.listen(PORT, () => {
-  console.log(`
+const server = http.createServer(handleRequest);
+
+// Only listen if executed directly
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`
 * ======================================================== *
    Ring Pop® Replica Server Running!
    URL: http://localhost:${PORT}
    Press Ctrl+C to stop the server
 * ======================================================== *
-  `);
-});
+    `);
+  });
+}
+
+module.exports = handleRequest;

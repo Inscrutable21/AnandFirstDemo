@@ -121,6 +121,9 @@ function createCandyPhysicsSimulator(containerElement, itemSelector) {
         // Floor bounce
         const floorY = boxH - c.h + c.targetYOffset;
         if (c.y >= floorY) {
+          if (c.vy > 2.8 && typeof popAudio !== 'undefined') {
+            try { popAudio.playPop(460 + Math.random() * 100, 0.05, 0.08); } catch (e) {}
+          }
           c.y = floorY;
           c.vy = -c.vy * BOUNCE_E;
           c.vx *= FLOOR_F;
