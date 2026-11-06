@@ -14,12 +14,17 @@
   background-color: transparent;
 }
 
-/* Individual Full-Screen Stacking Section */
+/* Individual Full-Screen Stacking Section with Native CSS Sticky Stacking */
 .as-stacking-section {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+  top: var(--header-height, 70px);
   width: 100%;
-  min-height: calc(100vh - 75px);
-  min-height: 100vh;
+  height: calc(100vh - 70px);
+  height: calc(100vh - var(--header-height, 70px));
+  min-height: 520px;
+  max-height: 840px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -29,14 +34,20 @@
   overflow: hidden;
   box-sizing: border-box;
   will-change: transform;
-  /* Natural layer shadow for clean depth */
-  box-shadow: 0 -25px 45px rgba(0, 0, 0, 0.35);
-  transition: box-shadow 0.3s ease;
+  /* Natural layer shadow for clean depth between sliding cards */
+  box-shadow: 0 -25px 45px rgba(0, 0, 0, 0.38);
 }
+
+/* Explicit Z-Index Stacking Order */
+.stack-party-pack { z-index: 1; }
+.stack-wedding    { z-index: 2; }
+.stack-originals  { z-index: 3; }
+.stack-colorfest  { z-index: 4; }
+.stack-seasonal   { z-index: 5; }
 
 /* Dynamic ScrollTrigger Active Stacking Shadow */
 .as-stacking-section--shadow {
-  box-shadow: 0 -30px 45px rgba(0, 0, 0, 0.45) !important;
+  box-shadow: 0 -30px 45px rgba(0, 0, 0, 0.48);
 }
 
 /* --- Theme 1: Party Pack (Pure Bold Punch Red / Yellow) --- */
@@ -94,27 +105,29 @@
 .stack-section-inner {
   width: 100%;
   max-width: 100%;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4.5rem 1.5rem 3.5rem;
+  padding: clamp(1.5rem, 3.5vh, 2.75rem) 1.5rem clamp(1.25rem, 3vh, 2.25rem);
   position: relative;
   z-index: 2;
   margin: 0 auto;
   box-sizing: border-box;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
 }
 
 /* "Collection" Small Eyebrow */
 .stack-small-title {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.85rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.5rem;
   color: #FCFCFC;
   opacity: 0.95;
   z-index: 2;
@@ -124,14 +137,14 @@
 /* Giant Statement Title across full width */
 .stack-huge-title {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 15vw, 15.5rem);
+  font-size: clamp(3rem, 8.5vw, 8.5rem);
   font-weight: 900;
-  line-height: 0.82;
+  line-height: 0.88;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
-  margin: 0 auto -55px;
+  margin: 0 auto -20px;
   position: relative;
   z-index: 1;
   user-select: none;
@@ -141,7 +154,7 @@
 
 @media (min-width: 1024px) {
   .stack-huge-title {
-    margin-bottom: -85px;
+    margin-bottom: -35px;
   }
 }
 
@@ -150,24 +163,23 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: min(85vw, 740px);
-  margin: 0 auto 1.25rem;
+  max-width: min(80vw, 540px);
+  margin: 0 auto 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
   will-change: transform;
-  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.42));
-  transition: transform 0.25s ease-out;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.38));
 }
 
 .stack-center-img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  max-height: 480px;
+  max-height: clamp(200px, 32vh, 360px);
   display: block;
   margin: 0 auto;
-  transition: transform 0.4s var(--ease-bounce);
+  transition: transform 0.35s var(--ease-bounce);
 }
 
 .stack-center-icon-wrap:hover .stack-center-img {
@@ -177,15 +189,16 @@
 /* Subtitle */
 .stack-subtitle {
   font-family: var(--font-sans);
-  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
   font-weight: 600;
   line-height: 1.3;
-  margin: 0 auto 2.25rem;
+  margin: 0 auto 1.15rem;
   color: #FFFFFF;
   text-align: center;
   max-width: 700px;
   letter-spacing: -0.01em;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 2;
 }
 
 /* Explore Button Pill */
@@ -200,17 +213,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 240px;
-  padding: 1.05rem 2.8rem;
+  min-width: 200px;
+  padding: 0.85rem 2.4rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
 }
 
@@ -220,7 +233,7 @@
   color: #E1251B;
 }
 .btn-yellow-explore:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
@@ -229,7 +242,7 @@
   color: #FFFFFF;
 }
 .btn-pink-explore:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 28px rgba(232, 88, 138, 0.45);
 }
 
@@ -238,7 +251,7 @@
   color: #2364E7;
 }
 .btn-lime-explore:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
@@ -247,7 +260,7 @@
   color: #086500;
 }
 .btn-green-explore:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
@@ -256,33 +269,37 @@
   color: #E0521E;
 }
 .btn-lemon-explore:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
 /* Responsive Breakpoints */
 @media (max-width: 768px) {
+  .as-stacking-section {
+    min-height: calc(100vh - 60px);
+    max-height: none;
+  }
   .stack-section-inner {
-    padding: 3.5rem 1.25rem 2.5rem;
+    padding: 2.25rem 1.25rem 1.75rem;
   }
   .stack-huge-title {
-    font-size: clamp(3.2rem, 14vw, 5.5rem);
-    margin-bottom: -35px;
+    font-size: clamp(2.4rem, 11vw, 4.2rem);
+    margin-bottom: -15px;
   }
   .stack-center-icon-wrap {
-    max-width: 92vw;
-    margin-bottom: 1rem;
+    max-width: 88vw;
+    margin-bottom: 0.65rem;
   }
   .stack-center-img {
-    max-height: 320px;
+    max-height: clamp(160px, 26vh, 230px);
   }
   .stack-subtitle {
-    font-size: 1.15rem;
-    margin-bottom: 1.75rem;
+    font-size: 1rem;
+    margin-bottom: 1.15rem;
   }
   .btn-stack-explore {
-    min-width: 200px;
-    padding: 0.9rem 2rem;
-    font-size: 0.95rem;
+    min-width: 180px;
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
   }
 }

@@ -1,6 +1,7 @@
 /**
  * Ring Pop Signature Stacking Sections & Icon Parallax
  * Authentic Manufactur Award-Winning Architecture
+ * High-performance CSS sticky stacking with GSAP micro-interactions
  */
 
 let mfrStackingTriggers = [];
@@ -10,8 +11,20 @@ class MFRStackingSection {
     this.mainSelector = "#mainContent";
     this.sectionSelector = ".as-stacking-section";
     this.stackedShadowClass = "as-stacking-section--shadow";
+    this.updateHeaderHeight();
     this.teardown();
     this.init();
+  }
+
+  updateHeaderHeight() {
+    const header = document.querySelector(".site-header, header.header, header");
+    const h = header ? header.offsetHeight : 70;
+    document.documentElement.style.setProperty("--header-height", `${h}px`);
+    return h;
+  }
+
+  getHeaderHeight() {
+    return this.updateHeaderHeight();
   }
 
   teardown() {
@@ -26,8 +39,11 @@ class MFRStackingSection {
 
     const sections = document.querySelectorAll(this.sectionSelector);
     sections.forEach(sec => {
-      sec.style.zIndex = "";
       sec.classList.remove(this.stackedShadowClass);
+      const inner = sec.querySelector(".stack-section-inner");
+      if (inner && window.gsap) {
+        window.gsap.set(inner, { clearProps: "all" });
+      }
       sec.querySelectorAll("[data-stacking-section-icon-parallax]").forEach(icon => {
         if (window.gsap) {
           window.gsap.set(icon, { clearProps: "transform" });
@@ -38,7 +54,7 @@ class MFRStackingSection {
 
   init() {
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
-      console.warn("GSAP / ScrollTrigger not loaded. Stacking sections running in CSS mode.");
+      console.warn("GSAP / ScrollTrigger not loaded. Stacking sections running in pure CSS mode.");
       return;
     }
     gsap.registerPlugin(ScrollTrigger);
@@ -46,58 +62,36 @@ class MFRStackingSection {
     const sections = Array.from(document.querySelectorAll(this.sectionSelector));
     if (sections.length < 2) return;
 
-    // 1. Assign incremental z-index so subsequent sections smoothly slide over previous ones
-    sections.forEach((section, index) => {
-      section.style.zIndex = index + 1;
+    this.updateHeaderHeight();
+
+    // 1. Subtle 3D Card Recession Depth:
+    // As the incoming section scrolls over the pinned section, the pinned section's inner
+    // content softly scales down to 0.94, dims slightly, and recedes into the background
+    sections.slice(0, -1).forEach((section, idx) => {
+      const nextSection = sections[idx + 1];
+      const inner = section.querySelector(".stack-section-inner");
+      if (inner && nextSection) {
+        const recessionTween = gsap.to(inner, {
+          scale: 0.94,
+          opacity: 0.7,
+          filter: "brightness(0.85)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: nextSection,
+            start: "top bottom",
+            end: () => `top top+=${this.getHeaderHeight()}`,
+            scrub: true,
+            invalidateOnRefresh: true
+          }
+        });
+        if (recessionTween.scrollTrigger) {
+          mfrStackingTriggers.push(recessionTween.scrollTrigger);
+        }
+      }
     });
 
-    // 2. Pin all sections except the last one
-    sections.slice(0, -1).forEach(section => {
-      const pinTrigger = ScrollTrigger.create({
-        trigger: section,
-        start: () => this.getPinStart(section),
-        end: () => `+=${this.getStackDistance(section, sections)}`,
-        pin: true,
-        pinSpacing: false,
-        anticipatePin: 1,
-        invalidateOnRefresh: true
-      });
-      mfrStackingTriggers.push(pinTrigger);
-    });
-
-    // 3. Toggle elevated shadow as each section scrolls up into place
-    sections.slice(1).forEach(section => {
-      const shadowTrigger = ScrollTrigger.create({
-        trigger: section,
-        start: "top bottom",
-        end: () => this.getPinStart(section),
-        toggleClass: { targets: section, className: this.stackedShadowClass }
-      });
-      mfrStackingTriggers.push(shadowTrigger);
-    });
-
-    // 4. Smooth Parallax scrub on the central product candy icon
+    // 2. Smooth floating parallax scrub on the central product candy icons
     this.initIconParallax(sections);
-  }
-
-  getHeaderHeight() {
-    const header = document.querySelector(".site-header, header.header, header");
-    return header ? header.offsetHeight : 0;
-  }
-
-  isTallerThanViewport(el) {
-    return el.getBoundingClientRect().height > window.innerHeight;
-  }
-
-  getPinStart(el) {
-    return this.isTallerThanViewport(el) ? "bottom bottom" : `top top+=${this.getHeaderHeight()}`;
-  }
-
-  getStackDistance(section, allSections) {
-    const lastSection = allSections[allSections.length - 1];
-    const lastBottom = lastSection.getBoundingClientRect().bottom;
-    const currentBottom = section.getBoundingClientRect().bottom;
-    return Math.max(lastBottom - currentBottom, 0);
   }
 
   initIconParallax(sections) {
@@ -108,21 +102,25 @@ class MFRStackingSection {
       const nextSection = sections[idx + 1];
       const hasNext = Boolean(nextSection);
 
-      const parallaxTrigger = ScrollTrigger.create({
-        trigger: section,
-        start: "top bottom",
-        endTrigger: hasNext ? nextSection : section,
-        end: () => (hasNext ? this.getPinStart(nextSection) : "bottom top"),
-        scrub: 0.6,
-        onUpdate: self => {
-          // Floating parallax translation from +25% down to -25%
-          const yOffset = 25 - 50 * self.progress;
-          icons.forEach(icon => {
-            gsap.set(icon, { yPercent: yOffset });
-          });
+      icons.forEach(icon => {
+        const parallaxTween = gsap.fromTo(icon,
+          { yPercent: 12 },
+          {
+            yPercent: -12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: "top bottom",
+              end: hasNext ? () => `top top+=${this.getHeaderHeight()}` : "bottom top",
+              scrub: 1,
+              invalidateOnRefresh: true
+            }
+          }
+        );
+        if (parallaxTween.scrollTrigger) {
+          mfrStackingTriggers.push(parallaxTween.scrollTrigger);
         }
       });
-      mfrStackingTriggers.push(parallaxTrigger);
     });
   }
 }
@@ -150,10 +148,11 @@ function initStackingCards() {
     new ResizeObserver(() => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
+        const inst = new MFRStackingSection();
         if (window.ScrollTrigger) {
           window.ScrollTrigger.refresh();
         }
-      }, 300);
+      }, 250);
     }).observe(header);
   }
 }

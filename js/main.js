@@ -68,7 +68,29 @@ function initExploreHandsAnimation() {
   }
 }
 
+function initSmoothAnchorScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#' || targetId.length <= 1) return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        const header = document.querySelector('.site-header, header');
+        const headerOffset = header ? header.offsetHeight : 0;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initSmoothAnchorScroll();
   if (typeof initAnnouncementBar === "function") initAnnouncementBar();
   if (typeof initHeaderNavigation === "function") initHeaderNavigation();
   if (typeof initHeroCarousel === "function") initHeroCarousel();
